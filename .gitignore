@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+.venv/
+
+# Outils
+.pytest_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+mlruns/
+
+# Données du concours : non publiées (voir README)
+datasets/
+
+# Solutions intermédiaires (seules les *_main.json sont versionnées)
+solutions/*_last.json
+
+# IDE
+.idea/
+.vscode/
