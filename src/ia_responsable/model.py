@@ -47,13 +47,16 @@ def solve(
     possible_sources: bool | None = None,
     total_margin: float = 1.0,
     no_full: set[int] = frozenset(),
+    force_energy_constraint: bool = False,
 ) -> tuple[Selection, SolverInfo]:
     """Construit et résout le modèle agrégé.
 
     possible_sources : autoriser les sources sur les besoins remplissables. None = automatique, vrai si les
     données manquent (inst.data_is_scarce).
     total_margin : part de l'offre totale utilisable, pour absorber le gaspillage de l'attribution (notebook 15).
-    no_full : modèles interdits à pleine valeur."""
+    no_full : modèles interdits à pleine valeur.
+    force_energy_constraint : écrire la contrainte d'énergie même si elle est redondante (démonstration du
+    piège numérique, notebook 14)."""
     if possible_sources is None:
         possible_sources = inst.data_is_scarce
     t0 = time.time()
@@ -74,7 +77,8 @@ def solve(
     for m in models:  # un seul rôle par modèle
         S.Add((x[m] if m in x else 0) + y[m] + (w[m] if m in w else 0) <= 1)
 
-    if inst.energy_is_binding:  # une contrainte redondante peut fausser le solveur (notebook 14)
+    # Une contrainte redondante, avec des coefficients énormes, peut fausser le solveur (notebook 14)
+    if inst.energy_is_binding or force_energy_constraint:
         E = ENERGY_SCALE
         S.Add(
             sum(inst.energy[m] / E * x[m] for m in x)

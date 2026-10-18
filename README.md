@@ -19,16 +19,16 @@ C'est un **sac à dos multidimensionnel** (énergie, données libres, données t
 
 ## Résultats
 
-| Jeu de données | Taille (modèles / datasets) | Notre score | Meilleur score du concours | Écart |
-|---|---|---:|---:|---:|
-| 1_example | 5 / 5 | 12 946 | 12 946 | **0** |
-| 2_medium | 3 000 / 10 000 | 272 224 | 272 322 | −98 |
-| 3_free | 5 000 / 20 000 | 523 758 | 523 758 | **0** (optimum prouvé) |
-| 4_precise | 8 000 / 40 000 | 1 031 910 | 1 031 941 | −31 |
-| 5_energy | 11 000 / 100 000 | 3 785 420 | 3 786 108 | −688 |
-| 6_shortage | 15 000 / 5 000 | 668 822 | 669 798 | −976 |
-| 7_big | 50 000 / 250 000 | 5 822 383 | 5 822 561 | −178 |
-| **Classement** | | | | **6 997 940 / 7 000 000 points** |
+| Jeu de données | Taille (modèles / datasets) | Notre score | Meilleur score du concours |                            Écart |
+|----------------|-----------------------------|------------:|---------------------------:|---------------------------------:|
+| 1_example      | 5 / 5                       |      12 946 |                     12 946 |                            **0** |
+| 2_medium       | 3 000 / 10 000              |     272 271 |                    272 322 |                              −51 |
+| 3_free         | 5 000 / 20 000              |     523 758 |                    523 758 |           **0** (optimum prouvé) |
+| 4_precise      | 8 000 / 40 000              |   1 031 910 |                  1 031 941 |                              −31 |
+| 5_energy       | 11 000 / 100 000            |   3 785 420 |                  3 786 108 |                             −688 |
+| 6_shortage     | 15 000 / 5 000              |     668 822 |                    669 798 |                             −976 |
+| 7_big          | 50 000 / 250 000            |   5 822 383 |                  5 822 561 |                             −178 |
+| **Classement** |                             |             |                            | **6 998 113 / 7 000 000 points** |
 
 Barème du concours : `1 000 000 × score / meilleur score` par jeu de données.
 
