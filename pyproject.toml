@@ -4,15 +4,12 @@ version = "0.1.0"
 description = "Concours Euro-Information 2026 « IA responsable » : heuristiques, recuit simulé et OR-Tools"
 readme = "README.md"
 authors = [
-    { name = "Thierry GONCALVES-NOVO" }
+    { name = "Thierry Goncalves Novo" }
 ]
 requires-python = ">=3.12"
+# Le package n'a besoin que du solveur ; les bibliothèques d'analyse servent aux notebooks.
 dependencies = [
-    "matplotlib>=3.11.2",
-    "numpy>=2.5.4",
     "ortools>=9.15.6755",
-    "pandas>=3.0.6",
-    "scipy>=1.18.1",
 ]
 
 [project.scripts]
@@ -30,6 +27,16 @@ dev = [
     "pytest>=9.1.1",
     "ruff>=0.17.0",
 ]
+notebooks = [
+    "matplotlib>=3.11.2",
+    "numpy>=2.5.4",
+    "pandas>=3.0.6",
+    "scipy>=1.18.1",
+]
+
+[tool.uv]
+# `uv sync` installe tout (développement et notebooks) ; l'image Docker, seulement le package.
+default-groups = ["dev", "notebooks"]
 
 [tool.ruff]
 line-length = 120

@@ -1,0 +1,18 @@
+# Seuls requirements.txt, src/ et test_solution.py entrent dans l'image.
+.git
+.github
+.venv
+**/__pycache__
+.pytest_cache
+.ruff_cache
+.ipynb_checkpoints
+mlruns
+datasets
+solutions
+notebooks
+docs
+tests
+dist
+Dockerfile
+.dockerignore
+Makefile

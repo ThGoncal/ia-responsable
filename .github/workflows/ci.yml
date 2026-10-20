@@ -18,3 +18,20 @@ jobs:
       - name: Lancer les tests
         # Les datasets du concours ne sont pas publiés : les tests qui en ont besoin sont ignorés.
         run: uv run pytest -q
+
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - name: Vérifier que requirements.txt correspond à uv.lock
+        run: |
+          make requirements
+          git diff --exit-code requirements.txt || (echo "requirements.txt est périmé : lancez make requirements" && exit 1)
+      - name: Construire l'image
+        run: docker build -t ia-responsable .
+      - name: Vérifier l'image
+        # Sans les datasets du concours, on vérifie que le solveur est installé et que la ligne de commande répond.
+        run: |
+          docker run --rm --entrypoint python ia-responsable -c "import ia_responsable, ortools; print('OR-Tools', ortools.__version__)"
+          docker run --rm ia-responsable --help
