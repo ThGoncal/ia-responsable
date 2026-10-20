@@ -667,11 +667,7 @@ name = "ia-responsable"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [
-    { name = "matplotlib" },
-    { name = "numpy" },
     { name = "ortools" },
-    { name = "pandas" },
-    { name = "scipy" },
 ]
 
 [package.dev-dependencies]
@@ -682,15 +678,15 @@ dev = [
     { name = "pytest" },
     { name = "ruff" },
 ]
+notebooks = [
+    { name = "matplotlib" },
+    { name = "numpy" },
+    { name = "pandas" },
+    { name = "scipy" },
+]
 
 [package.metadata]
-requires-dist = [
-    { name = "matplotlib", specifier = ">=3.11.2" },
-    { name = "numpy", specifier = ">=2.5.4" },
-    { name = "ortools", specifier = ">=9.15.6755" },
-    { name = "pandas", specifier = ">=3.0.6" },
-    { name = "scipy", specifier = ">=1.18.1" },
-]
+requires-dist = [{ name = "ortools", specifier = ">=9.15.6755" }]
 
 [package.metadata.requires-dev]
 dev = [
@@ -699,6 +695,12 @@ dev = [
     { name = "nbconvert", specifier = ">=7.17.2" },
     { name = "pytest", specifier = ">=9.1.1" },
     { name = "ruff", specifier = ">=0.17.0" },
+]
+notebooks = [
+    { name = "matplotlib", specifier = ">=3.11.2" },
+    { name = "numpy", specifier = ">=2.5.4" },
+    { name = "pandas", specifier = ">=3.0.6" },
+    { name = "scipy", specifier = ">=1.18.1" },
 ]
 
 [[package]]
